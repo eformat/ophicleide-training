@@ -10,7 +10,7 @@ import zlib
 from numpy import ndarray
 import pymongo
 from bson.binary import Binary
-
+import socket
 
 def cleanstr(s):
     noPunct = re.sub("[^a-z ]", " ", s.lower())
@@ -34,7 +34,7 @@ def train(sc, urls):
 
 
 def workloop(master, inq, outq, dburl):
-    sconf = SparkConf().setAppName("ophicleide-worker").setMaster(master)
+    sconf = SparkConf().setAppName("ophicleide-worker" + socket.gethostname()).setMaster(master)
     sc = SparkContext(conf=sconf)
 
     if dburl is not None:
