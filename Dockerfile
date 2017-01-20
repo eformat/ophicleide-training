@@ -2,8 +2,8 @@ FROM radanalyticsio/openshift-spark
 
 USER root
 
-ADD requirements.txt /opt/ophicleide
-ADD wheel-requirements.txt /opt/ophicleide
+ADD requirements.txt /opt/ophicleide/
+ADD wheel-requirements.txt /opt/ophicleide/
 
 WORKDIR /opt/ophicleide
 
