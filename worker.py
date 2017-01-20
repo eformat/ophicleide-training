@@ -35,6 +35,7 @@ def train(sc, urls):
 
 def workloop(master, inq, outq, dburl):
     sconf = SparkConf().setAppName("ophicleide-worker-" + socket.gethostname()).setMaster(master)
+    sconf.set("spark.scheduler.mode", "FAIR")
     sc = SparkContext(conf=sconf)
 
     if dburl is not None:
