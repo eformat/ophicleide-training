@@ -158,7 +158,7 @@ def create_query(newQuery):
         w2v = model["w2v"]
         qid = uuid4()
         try:
-            syns = w2v.findSynonyms(word, 10)
+            syns = w2v.findSynonyms(word, 5)
             q = {
                 "_id": qid, "word": word, "results": syns,
                  "modelName": model["name"], "model": mid
